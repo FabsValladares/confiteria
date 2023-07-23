@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace confiteria.Models
 {
-    public class Golosina
+    public class Golosina : INotifyPropertyChanged
     {
         public string Id { get; set; }
 
@@ -15,5 +19,41 @@ namespace confiteria.Models
         public double Precio { get; set; }
 
         public string ImagenProducto { get; set; }
+
+        private int cantidad;
+
+        public int Cantidad
+        {
+            get { return cantidad; }
+            set
+            {
+                if (cantidad != value)
+                {
+                    cantidad = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        // Comando para disminuir la cantidad
+        public ICommand DecrementCommand => new Command(() =>
+        {
+            if (Cantidad > 0)
+            {
+                Cantidad--;
+            }
+        });
+
+        // Comando para aumentar la cantidad
+        public ICommand IncrementCommand => new Command(() =>
+        {
+            Cantidad++;
+        });
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
