@@ -97,6 +97,7 @@
                                     </Grid.ColumnDefinitions>
 
                                    
+                                  
                                     <!-- Estilo personalizado para el precio -->
                                     <Label Text="{Binding Precio, StringFormat='Precio: L.{0:N2}'}" Style="{StaticResource PrecioLabel}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
 
