@@ -25,12 +25,20 @@
 
             <!-- Estilo para los botones personalizados -->
             <Style TargetType="Button" x:Key="CantidadButtonStyle">
-                <Setter Property="WidthRequest" Value="30" />
-                <Setter Property="HeightRequest" Value="30" />
+                <Setter Property="WidthRequest" Value="40" />
+                <Setter Property="HeightRequest" Value="40" />
                 <Setter Property="BackgroundColor" Value="Blue" />
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="CornerRadius" Value="5" />
-                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+
+            <!-- Estilo para el número de cantidad -->
+            <Style TargetType="Label" x:Key="CantidadLabelStyle">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -58,57 +66,57 @@
 
         <!-- ListView con los productos -->
         <ListView x:Name="confiteriaListView"
-                  Grid.Row="2"
-                  HasUnevenRows="True"
-                  ItemsSource="{Binding ConfiteriaList}">
+          Grid.Row="2"
+          HasUnevenRows="True"
+          ItemsSource="{Binding ConfiteriaList}">
 
             <!-- Plantilla personalizada para los elementos del ListView -->
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Frame Margin="10,5" Padding="5" BackgroundColor="White" CornerRadius="5" HasShadow="True">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
+                        <Frame Margin="10" Padding="5" BackgroundColor="White" CornerRadius="5" HasShadow="True">
+                            <StackLayout>
+                                <!-- Nombre del producto -->
+                                <Label Text="{Binding NombreProducto}" FontAttributes="Bold" FontSize="20" TextColor="Black" />
 
-                                <Image Source="{Binding ImagenProducto}" HeightRequest="100" WidthRequest="100" />
-
-                                <!-- Estilo personalizado para el nombre del producto -->
-                                <Label Text="{Binding NombreProducto}" FontAttributes="Bold" FontSize="20" Grid.Column="1" />
-
-                                <!-- Estilo personalizado para la descripción -->
-                                <Label Text="{Binding Descripcion}" FontSize="16" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" />
-
-                                <!-- Estilo personalizado para el precio -->
-                                <Label Text="{Binding Precio, StringFormat='Precio: L.{0:N2}'}" Style="{StaticResource PrecioLabel}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" />
+                                <!-- Descripción del producto -->
+                                <Label Text="{Binding Descripcion}" FontSize="16" TextColor="Black" />
 
                                 <!-- Línea -->
-                                <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Grid.Row="3" Grid.ColumnSpan="4" />
+                                <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" />
 
-                                <!-- Botón "-" para disminuir la cantidad -->
-                                <Button Text="-" Style="{StaticResource CantidadButtonStyle}" Command="{Binding DecrementCommand}" Grid.Row="4" Grid.Column="1" />
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
 
-                                <!-- Label que muestra la cantidad actual -->
-                                <Label Text="{Binding Cantidad}" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="4" Grid.Column="2" />
+                                    <!-- Estilo personalizado para el precio -->
+                                    <Label Text="{Binding Precio, StringFormat='Precio: L.{0:N2}'}" Style="{StaticResource PrecioLabel}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
 
-                                <!-- Botón "+" para aumentar la cantidad -->
-                                <Button Text="+" Style="{StaticResource CantidadButtonStyle}" Command="{Binding IncrementCommand}" Grid.Row="4" Grid.Column="3" />
-                            </Grid>
+                                    <!-- Botón "-" para disminuir la cantidad -->
+                                    <Button Text="-" Style="{StaticResource CantidadButtonStyle}" Command="{Binding DecrementCommand}" Grid.Row="0" Grid.Column="2" />
+
+                                    <!-- Label que muestra la cantidad actual -->
+                                    <Label Text="{Binding Cantidad}" Style="{StaticResource CantidadLabelStyle}" Grid.Row="0" Grid.Column="3" />
+
+                                    <!-- Botón "+" para aumentar la cantidad -->
+                                    <Button Text="+" Style="{StaticResource CantidadButtonStyle}" Command="{Binding IncrementCommand}" Grid.Row="0" Grid.Column="4" />
+                                </Grid>
+                            </StackLayout>
                         </Frame>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+
+
     </Grid>
 </ContentPage>
+
