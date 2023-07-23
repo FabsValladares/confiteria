@@ -35,7 +35,7 @@ namespace confiteria
                 Descripcion = "Palomitas de Maiz + 1 Refresco",
                 Precio = 95,
                 Cantidad = 0,
-               
+              
             },
             new Golosina
             {
