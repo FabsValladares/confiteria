@@ -3,17 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="confiteria.MainPage">
 
+    <!-- Definir estilos personalizados -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Estilo para el ListView -->
+            <Style TargetType="ListView">
+                <Setter Property="BackgroundColor" Value="LightGray" />
+                <Setter Property="SeparatorVisibility" Value="None" />
+            </Style>
+
+            <!-- Estilo para los elementos del ListView -->
+            <Style TargetType="ViewCell">
+                <Setter Property="Height" Value="120" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="Margin" Value="0,0,0,10" />
+            </Style>
+
+            <!-- Estilo para las etiquetas de precio -->
+            <Style TargetType="Label" x:Key="PrecioLabel">
+                <Setter Property="TextColor" Value="Green" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ListView x:Name="confiteriaListView"
               HasUnevenRows="True"
               ItemsSource="{Binding ConfiteriaList}">
+
+        <!-- Plantilla personalizada para los elementos del ListView -->
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Padding="10">
-                        <Image Source="{Binding ImagenProducto}" HeightRequest="100" WidthRequest="100"/>
-                        <Label Text="{Binding NombreProducto}" FontAttributes="Bold" />
-                        <Label Text="{Binding Descripcion}" />
-                        <Label Text="{Binding Precio, StringFormat='Precio: L.{0:N2}'}" FontAttributes="Bold" />
+                    <StackLayout>
+                        <Image Source="{Binding ImagenProducto}" HeightRequest="100" WidthRequest="100" />
+
+                        <!-- Estilo personalizado para el nombre del producto -->
+                        <Label Text="{Binding NombreProducto}" FontAttributes="Bold" FontSize="20" />
+
+                        <!-- Estilo personalizado para la descripción -->
+                        <Label Text="{Binding Descripcion}" FontSize="16" />
+
+                        <!-- Estilo personalizado para el precio -->
+                        <Label Text="{Binding Precio, StringFormat='Precio: L.{0:N2}'}" Style="{StaticResource PrecioLabel}" />
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
