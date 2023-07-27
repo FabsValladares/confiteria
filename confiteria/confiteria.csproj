@@ -21,22 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Images\Combo1.jpg" />
-    <None Remove="Images\Combo2.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Images\Combo1.jpg" />
-    <EmbeddedResource Include="Images\Combo2.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Views\" />
   </ItemGroup>
 </Project>
