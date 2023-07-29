@@ -18,7 +18,6 @@ namespace confiteria.Models
         public string ImagenProducto { get; set; }
 
         private int cantidad;
-
         public int Cantidad
         {
             get { return cantidad; }
@@ -31,6 +30,8 @@ namespace confiteria.Models
                 }
             }
         }
+
+        public double Total => Precio * Cantidad; // Calculamos el total según la cantidad y el precio
 
         // Comando para disminuir la cantidad
         public ICommand DecrementCommand => new Command(() =>

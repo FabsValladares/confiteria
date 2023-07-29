@@ -1,0 +1,27 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="confiteria.Views.TerminosPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+
+    <!-- Barra de color azul (Dashboard) -->
+    <Grid>
+        
+
+        <!-- Barra de color azul (Dashboard) -->
+        <Grid BackgroundColor="#152567" VerticalOptions="Start">
+            <Button Text="&#8592;" Clicked="OnBackButtonClicked" BackgroundColor="#152567" TextColor="White" FontSize="Large" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="50" HeightRequest="50" />
+            <Label Text="Términos y Condiciones" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="White" />
+        </Grid>
+
+        <!-- Contenido de la página de términos y condiciones -->
+        <StackLayout Margin="20,60,20,0" VerticalOptions="FillAndExpand" Spacing="10" Padding="0,10,0,0">
+            <Label Text="Términos y Condiciones" FontSize="Title" TextColor="#152567" HorizontalOptions="CenterAndExpand" />
+
+            <!-- Aquí puedes agregar el texto completo de los términos y condiciones acerca de los pagos y la política de Cinepolís y sus propietarios -->
+            <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod purus vel dolor vestibulum, quis tristique ipsum faucibus. Donec a lorem eu est ullamcorper ullamcorper id in lorem. In hac habitasse platea dictumst. Pellentesque a mauris sit amet est fermentum bibendum. Suspendisse feugiat, quam in scelerisque eleifend, tellus purus venenatis erat, vel ullamcorper odio neque nec felis. Integer sit amet augue orci. Duis at rhoncus dolor. Sed vel justo nisl. Integer ut pharetra dolor. Sed in fermentum magna, a blandit justo. Donec fringilla tellus arcu, nec lobortis urna fringilla in. Suspendisse potenti." TextColor="#152567" />
+
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
