@@ -30,6 +30,11 @@ namespace confiteria.Views
             Navigation.PopAsync();
         }
 
+        private async void OnTerminosClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TerminosPage());
+        }
+
         private void OnPagarButtonClicked(object sender, EventArgs e)
         {
             // Verificar si se han ingresado todos los datos requeridos y si se ha seleccionado un método de pago

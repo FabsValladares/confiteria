@@ -41,8 +41,21 @@
 
             <!-- Términos de política y privacidad -->
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <RadioButton x:Name="TerminosRadioButton" GroupName="Terminos" TextColor="#152567"  />
-                <Label Text="He revisado la orden de Compra, leído y acepto la política de manejo de datos y los términos y condiciones." TextColor="#152567" HorizontalOptions="StartAndExpand" />
+                <RadioButton x:Name="TerminosRadioButton" GroupName="Terminos" TextColor="#152567" />
+                <Label Text="He revisado la orden de Compra, leído y acepto los " TextColor="#152567" HorizontalOptions="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="He revisado la orden de Compra, leído y acepto los   " TextColor="#152567" />
+                            <Span Text="la politica  de manejo de datos y los " TextColor="#152567" />
+                            <Span Text="términos y condiciones." TextColor="#152567" TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnTerminosClicked" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="." TextColor="#152567" HorizontalOptions="StartAndExpand" />
             </StackLayout>
 
             <!-- Carrito de Supermercado y botón de Pagar -->

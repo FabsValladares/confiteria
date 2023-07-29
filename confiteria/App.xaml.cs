@@ -8,6 +8,9 @@ namespace confiteria
         {
             InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
+            {
+              
+            }
 
         }
 
