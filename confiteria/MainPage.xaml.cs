@@ -1,4 +1,5 @@
 ﻿using confiteria.Models;
+using confiteria.Views;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -66,10 +67,11 @@ namespace confiteria
             BindingContext = this;
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new PantallaPagos());
         }
+
     }
 
 }
